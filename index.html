@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from sprightly-meringue-ac9fb8.netlify.app/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 09 May 2026 22:00:59 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday 🎂❤️</title>
+    <meta name="description" content="A special birthday surprise just for you ❤️">
+    <meta property="og:title" content="Happy Birthday! 🎂">
+    <meta property="og:description" content="">
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&amp;family=Quicksand:wght@300;400;500;600;700&amp;family=Dancing+Script:wght@400;500;600;700&amp;display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="cake-builder.css">
+</head>
+
+<body>
+    <!-- ========== LOCK SCREEN ========== -->
+    <div id="lockScreen" class="lock-screen">
+        <div class="lock-hearts-bg" id="lockHeartsBg"></div>
+        <div class="lock-content">
+            <div class="lock-icon">⏳</div>
+            <h1 class="lock-title">Not yet…</h1>
+            <p class="lock-subtitle">Come back at 12:00 AM on 13 May ❤️</p>
+            <div class="countdown-timer" id="countdownTimer">
+                <div class="time-unit">
+                    <span class="time-value" id="days">02</span>
+                    <span class="time-label">Days</span>
+                </div>
+                <div class="time-separator">:</div>
+                <div class="time-unit">
+                    <span class="time-value" id="hours">20</span>
+                    <span class="time-label">Hours</span>
+                </div>
+                <div class="time-separator">:</div>
+                <div class="time-unit">
+                    <span class="time-value" id="minutes">23</span>
+                    <span class="time-label">Minutes</span>
+                </div>
+                <div class="time-separator">:</div>
+                <div class="time-unit">
+                    <span class="time-value" id="seconds">24</span>
+                    <span class="time-label">Seconds</span>
+                </div>
+            </div>
+            <div class="lock-glow"></div>
+        </div>
+    </div>
+
+    <!-- ========== CONFETTI CANVAS ========== -->
+    <canvas id="confettiCanvas"></canvas>
+
+    <!-- ========== FLOATING BALLOONS ========== -->
+    <div class="balloons-container" id="balloonsContainer"></div>
+
+    <!-- ========== MAIN CONTENT ========== -->
+    <main id="mainContent" class="main-content hidden">
+
+        <!-- ===== SECTION 1: HERO ===== -->
+        <section id="hero" class="section hero-section">
+            <div class="floating-hearts" id="heroHearts"></div>
+            <div class="particle-glow" id="particleGlow"></div>
+
+            <!-- Sparkle stars scattered across hero -->
+            <div class="hero-sparkles">
+                <span class="hero-star" style="top:12%;left:8%;--delay:0s;--size:18px">✦</span>
+                <span class="hero-star" style="top:25%;left:85%;--delay:1.2s;--size:14px">✧</span>
+                <span class="hero-star" style="top:60%;left:5%;--delay:2.5s;--size:20px">✦</span>
+                <span class="hero-star" style="top:70%;left:92%;--delay:0.8s;--size:16px">✧</span>
+                <span class="hero-star" style="top:15%;left:45%;--delay:3s;--size:12px">⋆</span>
+                <span class="hero-star" style="top:82%;left:30%;--delay:1.8s;--size:15px">✦</span>
+                <span class="hero-star" style="top:8%;left:70%;--delay:2.2s;--size:22px">✧</span>
+                <span class="hero-star" style="top:45%;left:95%;--delay:0.4s;--size:13px">⋆</span>
+                <span class="hero-star" style="top:90%;left:75%;--delay:3.5s;--size:17px">✦</span>
+                <span class="hero-star" style="top:55%;left:12%;--delay:1.5s;--size:11px">✧</span>
+            </div>
+
+            <!-- Floating decorative emojis -->
+            <div class="hero-deco-emojis">
+                <span class="deco-emoji" style="top:20%;left:6%;--drift:-15px;--delay:0s">🎈</span>
+                <span class="deco-emoji" style="top:30%;left:88%;--drift:12px;--delay:1s">🎂</span>
+                <span class="deco-emoji" style="top:75%;left:10%;--drift:-10px;--delay:2s">🎁</span>
+                <span class="deco-emoji" style="top:65%;left:90%;--drift:15px;--delay:0.5s">⭐</span>
+                <span class="deco-emoji" style="top:10%;left:25%;--drift:-8px;--delay:3s">🩷</span>
+                <span class="deco-emoji" style="top:85%;left:80%;--drift:10px;--delay:1.5s">🎀</span>
+            </div>
+
+            <div class="hero-content">
+                <!-- Glowing aura behind the GIF -->
+                <div class="hero-gif-wrapper">
+                    <div class="hero-gif-aura"></div>
+                    <img src="gifs/heart.gif" alt="Heart" class="hero-gif">
+                </div>
+                <h1 class="hero-title" id="heroTitle">
+                    Happy Birthday, <span class="highlight-name">Beautiful</span> <span class="emoji-bounce">❤️🎉</span>
+                </h1>
+                <p class="hero-subtitle">Another year more radiant and incredible than the last ✨</p>
+                <p class="hero-tagline">🌸 A special surprise just for you 🌸</p>
+                <button class="cta-button" id="startSurprise" aria-label="Start the Surprise">
+                    <span class="btn-shimmer"></span>
+                    Start the Surprise <span class="arrow">→</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- ===== SECTION 2: AGE CELEBRATION ===== -->
+        <section id="ageCelebration" class="section age-section">
+            <div class="section-inner">
+                <div class="glass-card age-card">
+                    <div class="sparkle-container" id="ageSparkles"></div>
+                    <div class="milestone-badge">🎉 Milestone Birthday 🎉</div>
+                    <h2 class="age-heading">You turned</h2>
+                    <div class="age-number" id="ageNumber">0</div>
+                    <h2 class="age-heading">today 🎂</h2>
+                    <div class="age-divider"></div>
+                    <div class="age-counter">
+                        <p>You've been shining for</p>
+                        <div class="days-counter">
+                            <span class="days-number" id="daysAlive">0</span>
+                            <span class="days-label">days</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Compliment Card -->
+                <div class="compliment-card" id="complimentCard">
+                    <div class="compliment-glow"></div>
+                    <span class="compliment-flower left">🌸</span>
+                    <p class="compliment-text">
+                        Radiant, stunning, and the most incredible soul I know <span class="compliment-emoji">🌸</span>
+                    </p>
+                    <span class="compliment-flower right">🌸</span>
+                </div>
+
+                <!-- Extra sweet words -->
+                <div class="sweet-words" id="sweetWords">
+                    <p class="sweet-line" style="--i:0">Every year you only get more beautiful 🦋</p>
+                    <p class="sweet-line" style="--i:1">Inside and out, you're absolutely radiant ✨</p>
+                    <p class="sweet-line" style="--i:2">The world is a better place because you're in it 🌍💖</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SECTION 3: PHOTO GALLERY ===== -->
+        <section id="photoGallery" class="section gallery-section">
+            <div class="section-inner">
+                <h2 class="section-title">Growing Up Gorgeous</h2>
+                <!-- Instagram Slider -->
+                <div class="insta-slider-wrapper">
+                    <!-- Navigation Arrows -->
+                    <button class="insta-arrow insta-arrow--prev" id="instaArrowPrev" aria-label="Previous photo">&#10094;</button>
+                    <button class="insta-arrow insta-arrow--next" id="instaArrowNext" aria-label="Next photo">&#10095;</button>
+
+                    <!-- Instagram Frame -->
+                    <div class="insta-frame-outer">
+                        <!-- Instagram gradient border -->
+                        <div class="insta-gradient-border">
+                            <div class="insta-frame-inner">
+
+                                <!-- Top bar -->
+                                <div class="insta-top-bar">
+                                    <div class="insta-avatar-wrap">
+                                        <div class="insta-avatar-ring">
+                                            <div class="insta-avatar">🌸</div>
+                                        </div>
+                                        <div class="insta-username-wrap">
+                                            <span class="insta-username">_misbii_💕</span>
+                                            <span class="insta-location">📍 In my heart, always</span>
+                                        </div>
+                                    </div>
+                                    <span class="insta-dots">•••</span>
+                                </div>
+
+                                <!-- Photo area -->
+                                <div class="insta-photo-area">
+                                    <div class="insta-photo-track" id="instaPhotoTrack">
+                                        <!-- 28 photo slots generated by JS -->
+                                    </div>
+                                    <!-- Dots indicator -->
+                                    <div class="insta-dots-row" id="instaDots"></div>
+                                </div>
+
+                                <!-- Action bar -->
+                                <div class="insta-actions">
+                                    <div class="insta-actions-left">
+                                        <span class="insta-action-icon insta-heart-btn" id="instaHeartBtn">❤️</span>
+                                        <span class="insta-action-icon">💬</span>
+                                        <span class="insta-action-icon">✈️</span>
+                                    </div>
+                                    <span class="insta-action-icon insta-bookmark">🔖</span>
+                                </div>
+
+                                <!-- Likes & caption -->
+                                <div class="insta-caption-area">
+                                    <div class="insta-likes" id="instaLikes">❤️ <strong>28 memories</strong> liked</div>
+                                    <div class="insta-caption"><strong>_misbiii_</strong> 🌸 Every photo tells a story of how beautiful you are ✨ <span class="insta-hashtags">#HappyBirthday #ForYou 💕</span></div>
+                                    <div class="insta-slide-counter" id="instaSlideCounter">1 / 28</div>
+                                </div>
+
+                                <!-- Bottom nav -->
+                                <div class="insta-bottom-nav">
+                                    <span>🏠</span><span>🔍</span><span>➕</span><span>🎬</span><span>👤</span>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Photo Lightbox -->
+        <div class="lightbox-overlay" id="lightboxOverlay">
+            <button class="lightbox-close" id="lightboxClose" aria-label="Close lightbox">✕</button>
+            <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous photo">❮</button>
+            <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next photo">❯</button>
+            <div class="lightbox-content">
+                <img class="lightbox-img" id="lightboxImg" src="#" alt="Gallery photo">
+                <div class="lightbox-caption" id="lightboxCaption"></div>
+                <div class="lightbox-counter" id="lightboxCounter"></div>
+            </div>
+        </div>
+
+        <!-- ===== SECTION 4: LETTER ===== -->
+        <section id="letterSection" class="section letter-section">
+            <div class="section-inner">
+                <h2 class="section-title">A Letter for you… 💌</h2>
+
+                <div class="letter-stage" id="letterStage">
+
+                    <!-- Hearts burst layer (OUTSIDE envelope so it won't be hidden with it) -->
+                    <div class="hearts-burst" id="heartsBurst"></div>
+
+                    <!-- ── Envelope ── -->
+                    <div class="envelope-wrapper" id="envelopeWrapper">
+                        <div class="envelope" id="envelope">
+                            <!-- Back panel -->
+                            <div class="envelope-back"></div>
+
+                            <!-- Inner lining -->
+                            <div class="envelope-inner"></div>
+
+                            <!-- Letter peeking inside -->
+                            <div class="envelope-letter-peek">
+                                <span>My sukkon ,</span>
+                            </div>
+
+                            <!-- Front body (Deep Curve SVG) --
+                            <div class="envelope-front">
+                                <!-- Quadratic Curve for the U-Shape Pocket -->
+                            <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" viewBox="0 0 100 100"
+                                style="width:100%; height:100%; display:block; overflow:visible;">
+                                <defs>
+                                    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+                                        <feDropShadow dx="0" dy="-2" stdDeviation="2" flood-color="rgba(0,0,0,0.15)" />
+                                    </filter>
+                                </defs>
+                                <path d="M0,0 Q50,65 100,0 L100,100 L0,100 Z" fill="#C27ba0" filter="url(#shadow)" />
+                            </svg>
+                        </div>
+
+                        <!-- Flap (lid) -->
+                        <div class="envelope-flap" id="envelopeFlap">
+                            <div class="envelope-flap-inner"></div>
+                        </div>
+
+                        <!-- Wax seal heart -->
+                        <div class="envelope-seal" id="envelopeSeal">
+                            <span class="seal-heart">❤️</span>
+                        </div>
+                    </div>
+
+                    <!-- Shadow under envelope -->
+                    <div class="envelope-shadow"></div>
+
+                    <!-- Tap hint -->
+                    <p class="envelope-hint" id="envelopeHint">
+                        <span class="hint-icon"></span> Tap to open your letter ❤️
+                    </p>
+                </div>
+
+                <!-- ── Letter (hidden initially) ── -->
+                <div class="letter-reveal" id="letterReveal">
+                    <div class="letter-container">
+                        <div class="letter-paper">
+                            <div class="letter-text" id="letterText"></div>
+                            <div class="letter-heart">❤️</div>
+                        </div>
+                        <img src="gifs/bubududu.gif" alt="Cute bear" class="section-gif letter-gif">
+                    </div>
+                </div>
+
+            </div>
+            </div>
+        </section>
+
+        <!-- ===== SECTION 5: REASONS ===== -->
+        <section id="reasonsSection" class="section reasons-section">
+            <div class="section-inner">
+                <h2 class="section-title">12 Reasons Why You're Incredible ✨</h2>
+                <img src="gifs/cute-cat-hearts.gif" alt="Cute cat with hearts" class="section-gif reasons-gif">
+
+                <!-- Interactive Controls -->
+                <div class="reasons-controls">
+                    <div class="reasons-progress">
+                        <span id="reasonsCounter">0</span> / 12 Reasons Revealed 💖
+                    </div>
+                    <div class="reasons-buttons">
+                        <button class="cta-button small-btn" id="revealNextBtn">Reveal Next ✨</button>
+                        <button class="cta-button small-btn secondary" id="revealAllBtn">Reveal All 🚀</button>
+                        <button class="cta-button small-btn icon-btn" id="resetReasonsBtn" title="Reset">🔄</button>
+                    </div>
+                </div>
+
+                <!-- Success Message -->
+                <div class="reasons-success hidden" id="reasonsSuccess">
+                    <h3>You are truly incredible! 💖</h3>
+                    <p>And that's just the beginning...</p>
+                </div>
+
+                <div class="reasons-grid" id="reasonsGrid"></div>
+            </div>
+        </section>
+
+        <!-- ===== SECTION 9: WISH WALL ===== -->
+        <section id="wishWall" class="section wish-section">
+            <div class="section-inner">
+                <div class="wish-header">
+                    <h2 class="section-title">Messages Just for You 💝</h2>
+                    <p class="section-subtitle">A collection of small reminders of how special you are.</p>
+                </div>
+                <div class="wish-wall-container" id="wishWallContainer"></div>
+                <div class="wish-controls">
+                    <button class="cta-button small-btn" id="shuffleWishes">Shuffle Messages 🔄</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SECTION 10: (Confetti & Balloons are global) ===== -->
+
+        <!-- ===== SECTION 11: FINAL PAGE ===== -->
+        <section id="finalSection" class="section final-section">
+            <div class="section-inner">
+                <div class="final-content">
+                    <img src="gifs/congrats-amazing.gif" alt="Congratulations" class="section-gif final-gif">
+                    <h1 class="final-title">Happiest Birthday, My Love! ❤️</h1>
+                    <p class="final-subtitle">You make every single day of my life feel like a gift. Here's to us and
+                        many more birthdays together. 🌸</p>
+                    <p class="final-quote">"You are the best thing that ever happened to me."</p>
+                    <button class="cta-button secondary-btn" id="replayBtn">Replay from the top 🔄</button>
+                </div>
+                <div class="floating-hearts final-hearts" id="finalHearts"></div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Background Music -->
+    <audio id="bgMusic" src="Sequence%2001_12.mp4" loop preload="auto"></audio>
+
+    <script src="script.js"></script>
+</body>
+
+
+<!-- Mirrored from sprightly-meringue-ac9fb8.netlify.app/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 09 May 2026 22:01:09 GMT -->
+</html>

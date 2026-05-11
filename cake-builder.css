@@ -1,0 +1,1000 @@
+/* ========================================
+   ADVANCED CAKE MAKER - NEW STYLES
+   ======================================== */
+
+/* --- Layout --- */
+.cake-maker-section {
+    background: #FFFBE6 !important;
+    /* Solid Warm Pastel Yellow - blocks body plaid */
+    background-attachment: scroll !important;
+    padding: 40px 20px;
+    min-height: 100vh;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+}
+
+/* Sprinkle overlay on top of the solid background */
+.cake-maker-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background-image:
+        /* Pink Sprinkles */
+        radial-gradient(circle, #FFB6C1 3px, transparent 3.5px),
+        /* Purple Sprinkles */
+        radial-gradient(circle, #9B59B6 3px, transparent 3.5px),
+        /* White Sprinkles */
+        radial-gradient(circle, rgba(255, 255, 255, 0.8) 3px, transparent 3.5px),
+        /* Flour Dusting */
+        radial-gradient(circle, rgba(255, 240, 210, 0.6) 20px, transparent 25px),
+        radial-gradient(circle, rgba(255, 245, 220, 0.4) 15px, transparent 20px);
+    background-size:
+        90px 90px,
+        120px 120px,
+        70px 70px,
+        300px 300px,
+        200px 200px;
+    background-position:
+        0 0,
+        40px 40px,
+        20px 20px,
+        80px 80px,
+        0 0;
+}
+
+.section-inner.full-width {
+    width: 95%;
+    max-width: 1400px;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.cake-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.cake-header .section-title {
+    margin-bottom: 0;
+    text-align: left;
+    font-size: 2rem;
+}
+
+.cake-toolbar {
+    display: flex;
+    gap: 10px;
+    background: white;
+    padding: 8px 16px;
+    border-radius: var(--radius-pill);
+    box-shadow: var(--shadow);
+}
+
+.tool-btn {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: transform 0.2s;
+    padding: 8px;
+    border-radius: 50%;
+}
+
+.tool-btn:hover {
+    background: var(--bg-alt);
+    transform: scale(1.1);
+}
+
+.divider {
+    width: 1px;
+    background: #eee;
+    margin: 0 5px;
+}
+
+/* --- Builder Main Layout --- */
+.cake-builder-layout {
+    display: flex;
+    flex: 1;
+    gap: 20px;
+    height: 100%;
+    min-height: 0;
+    /* Fix flex overflow */
+}
+
+/* --- Sidebar (Tabs) --- */
+.cb-sidebar {
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+}
+
+.cb-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background: white;
+    padding: 16px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow);
+    height: 100%;
+}
+
+.cb-tab {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    padding: 12px 0;
+    cursor: pointer;
+    border-radius: var(--radius);
+    transition: var(--transition);
+    opacity: 0.6;
+}
+
+.cb-tab:hover {
+    opacity: 1;
+    background: var(--bg-alt);
+}
+
+.cb-tab.active {
+    opacity: 1;
+    background: var(--primary);
+    color: white;
+    box-shadow: 0 4px 12px rgba(255, 179, 217, 0.4);
+}
+
+.tab-icon {
+    font-size: 1.5rem;
+    margin-bottom: 4px;
+}
+
+.tab-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+/* --- Controls Panel --- */
+.cb-controls-panel {
+    width: 380px;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    height: 100%;
+}
+
+.panel-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 24px;
+}
+
+/* --- Stage Area --- */
+.cb-stage-area {
+    flex: 1;
+    position: relative;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 240, 245, 0.4) 70%);
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: visible;
+}
+
+.stage-controls {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+    z-index: 100;
+}
+
+.view-toggle {
+    background: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    box-shadow: var(--shadow);
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.view-toggle:hover {
+    transform: scale(1.1);
+}
+
+.stage-actions {
+    position: absolute;
+    bottom: 30px;
+    display: flex;
+    gap: 16px;
+    z-index: 100;
+}
+
+/* --- 3D CAKE STAGE --- */
+.cake-stage {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    perspective: 1200px;
+    transform-style: preserve-3d;
+    transform-origin: center center;
+}
+
+.cake-container,
+.cake-body,
+.cake-stage {
+    transform-style: preserve-3d;
+}
+
+.cake-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: rotateX(15deg) rotateY(0deg);
+    /* Default tilt handled by JS logic mostly or init here */
+    transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.cake-plate {
+    position: absolute;
+    width: 360px;
+    height: 360px;
+    background: white;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotateX(60deg) translateZ(0px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15), inset 0 -10px 20px rgba(0, 0, 0, 0.05);
+    background: radial-gradient(circle, #fcfcfc 40%, #f0f0f0 100%);
+    border: 4px solid #fff;
+    transform-style: preserve-3d;
+}
+
+.cake-body {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transform-style: preserve-3d;
+    pointer-events: none;
+    /* Let clicks pass to layers */
+    /* Note: Layers are children, they need pointer-events auto */
+}
+
+/* 3D Layer Construction */
+.layer-3d {
+    position: absolute;
+    width: 260px;
+    /* Base width */
+    height: 260px;
+    left: 50%;
+    top: 50%;
+    transform-style: preserve-3d;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    /* Let clicks pass to control layer interactions if needed */
+    transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.layer-3d-visual {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    pointer-events: auto;
+    /* Re-enable for the visual parts */
+}
+
+/* Volumetric Layer Slice */
+.layer-slice {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    width: 260px;
+    /* Base width matches layer-3d */
+    height: 260px;
+    border-radius: 50%;
+    pointer-events: auto;
+    /* Optional: minimal shadow to blend steps */
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
+}
+
+.layer-slice.top-face {
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+/* Container for the group of slices (Layer) */
+.layer-group {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    pointer-events: none;
+}
+
+/* Frosting/Cream */
+.cream-drip {
+    position: absolute;
+    width: 20px;
+    height: 30px;
+    background: var(--frosting-color);
+    border-radius: 0 0 10px 10px;
+    top: 95%;
+    /* Below top face */
+    transform: rotateX(-90deg);
+    /* If using real 3D */
+    z-index: 5;
+}
+
+/* Zone Transforms - CSS fallback if JS is slow */
+.cake-toppers-zone,
+.cake-candles-zone {
+    position: absolute;
+    width: 260px;
+    height: 260px;
+    top: 50%;
+    left: 50%;
+    transform-style: preserve-3d;
+    pointer-events: none;
+}
+
+/* Animations */
+@keyframes fallIn {
+    0% {
+        transform: translate(-50%, -400px);
+        opacity: 0;
+    }
+
+    60% {
+        transform: translate(-50%, 20px);
+    }
+
+    80% {
+        transform: translate(-50%, -10px);
+    }
+
+    100% {
+        transform: translate(-50%, 0);
+        opacity: 1;
+    }
+}
+
+@keyframes squish {
+    0% {
+        transform: scale(1, 1) translate(-50%, 0);
+    }
+
+    50% {
+        transform: scale(1.1, 0.8) translate(-50%, 10px);
+    }
+
+    100% {
+        transform: scale(1, 1) translate(-50%, 0);
+    }
+}
+
+.anim-fall {
+    animation: fallIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.anim-squish {
+    animation: squish 0.3s ease;
+}
+
+/* --- Panel UI Elements --- */
+.flavor-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 16px;
+}
+
+.flavor-card {
+    background: white;
+    border-radius: var(--radius);
+    padding: 16px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    position: relative;
+    overflow: hidden;
+}
+
+.flavor-card:hover {
+    transform: translateY(-5px) rotateX(10deg);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+    border-color: var(--primary);
+}
+
+.flavor-card.active {
+    border-color: var(--primary);
+    background: var(--bg-alt);
+    transform: scale(0.98);
+}
+
+.flavor-preview {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin: 0 auto 12px;
+    background: var(--flavor-color);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.flavor-preview::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    inset: 4px;
+    border: 2px dashed rgba(255, 255, 255, 0.4);
+}
+
+.flavor-name {
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 4px;
+}
+
+.flavor-desc {
+    font-size: 0.75rem;
+    color: var(--text-light);
+}
+
+/* Frosting Palette */
+.color-palette {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    margin-bottom: 24px;
+}
+
+.color-swatch {
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.color-swatch:hover {
+    transform: scale(1.2);
+    z-index: 2;
+}
+
+.color-swatch.active {
+    transform: scale(1.1);
+    box-shadow: 0 0 0 4px white, 0 0 0 6px var(--primary);
+}
+
+/* Decorations Draggable */
+.decor-category {
+    margin-bottom: 24px;
+}
+
+.decor-category h4 {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.decor-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.decor-item {
+    font-size: 2rem;
+    cursor: grab;
+    padding: 10px;
+    background: white;
+    border-radius: var(--radius);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s;
+    user-select: none;
+    touch-action: manipulation;
+}
+
+.decor-item:hover {
+    transform: scale(1.2) rotate(10deg);
+}
+
+.decor-item:active {
+    cursor: grabbing;
+}
+
+/* Placed Decoration on Cake */
+.placed-decoration-container {
+    position: absolute;
+    transform-style: preserve-3d;
+    cursor: grab;
+    z-index: 200;
+    pointer-events: auto;
+}
+
+.decor-visual {
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.decor-layer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+    white-space: nowrap;
+    user-select: none;
+}
+
+.placed-decoration-container:hover .decor-visual {
+    transform: translateY(-8px) scale(1.1);
+}
+
+/* Candle Flame */
+.candle-container {
+    position: absolute;
+    width: 12px;
+    height: 65px;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.4));
+    border-radius: 4px;
+    /* transform logic handled in js */
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    pointer-events: auto;
+}
+
+.candle-flame {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%) scale(0);
+    width: 10px;
+    height: 18px;
+    background: radial-gradient(ellipse at bottom, #ffee00 0%, #ff9900 60%, rgba(255, 100, 0, 0.2) 100%);
+    border-radius: 50% 50% 20% 20%;
+    filter: blur(1px);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease;
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.candle-flame.lit {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+    animation: flicker 0.1s infinite alternate;
+}
+
+@keyframes flicker {
+    0% {
+        transform: translateX(-50%) scale(1) rotate(-2deg);
+        opacity: 0.9;
+    }
+
+    100% {
+        transform: translateX(-50%) scale(1.1) rotate(2deg);
+        opacity: 1;
+    }
+}
+
+/* Modals */
+.cb-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.cb-modal:not(.hidden) {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.cb-modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: var(--radius-lg);
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+}
+
+.cb-modal:not(.hidden) .cb-modal-content {
+    transform: translateY(0);
+}
+
+.cb-modal-content.large {
+    max-width: 800px;
+}
+
+.cb-modal-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* Cake Message Board */
+.cake-message-board {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.9);
+    padding: 10px 20px;
+    border-radius: 12px;
+    font-family: var(--font-heading, "Fredoka", sans-serif);
+    font-size: 1.5rem;
+    color: #5d4037;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    white-space: nowrap;
+    z-index: 1000;
+    pointer-events: none;
+    text-align: center;
+    border: 2px solid #f2c872;
+}
+
+/* ========================================
+   RESPONSIVE — TABLET (≤ 900px)
+   ======================================== */
+@media (max-width: 900px) {
+    .cake-maker-section {
+        height: auto;
+        min-height: 100vh;
+        padding: 30px 12px;
+        align-items: flex-start;
+    }
+
+    .section-inner.full-width {
+        height: auto;
+        min-height: auto;
+    }
+
+    .cake-header {
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-bottom: 14px;
+    }
+
+    .cake-header .section-title {
+        font-size: 1.5rem;
+        width: 100%;
+        text-align: center;
+    }
+
+    .cake-toolbar {
+        margin: 0 auto;
+        padding: 6px 12px;
+    }
+
+    .cake-builder-layout {
+        flex-direction: column;
+        gap: 14px;
+        height: auto;
+    }
+
+    /* Sidebar tabs → horizontal scrollable strip */
+    .cb-sidebar {
+        width: 100%;
+        flex-direction: row;
+        order: 0;
+    }
+
+    .cb-nav {
+        flex-direction: row;
+        width: 100%;
+        gap: 6px;
+        padding: 10px 12px;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+
+    .cb-nav::-webkit-scrollbar {
+        display: none;
+    }
+
+    .cb-tab {
+        flex: 0 0 auto;
+        flex-direction: row;
+        gap: 6px;
+        padding: 10px 16px;
+        white-space: nowrap;
+    }
+
+    .tab-icon {
+        font-size: 1.2rem;
+        margin-bottom: 0;
+    }
+
+    .tab-label {
+        font-size: 0.75rem;
+    }
+
+    /* Cake preview → goes second */
+    .cb-stage-area {
+        order: 1;
+        height: 340px;
+        min-height: 300px;
+        width: 100%;
+        border-radius: 16px;
+        overflow: visible;
+    }
+
+    .cake-stage {
+        width: 280px;
+        height: 280px;
+        transform: scale(0.78);
+        -webkit-transform: scale(0.78);
+        perspective: 800px;
+        will-change: transform;
+    }
+
+    .cake-container {
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+    }
+
+    .layer-slice {
+        -webkit-backface-visibility: hidden;
+        will-change: transform;
+    }
+
+    .cake-plate {
+        width: 260px;
+        height: 260px;
+    }
+
+    .stage-actions {
+        bottom: 14px;
+        gap: 10px;
+    }
+
+    .stage-actions .cta-button {
+        font-size: 0.85rem;
+        padding: 10px 18px;
+    }
+
+    .stage-controls {
+        top: 12px;
+        right: 12px;
+    }
+
+    .view-toggle {
+        width: 34px;
+        height: 34px;
+        font-size: 1rem;
+    }
+
+    /* Controls panel → goes last */
+    .cb-controls-panel {
+        width: 100%;
+        order: 2;
+        height: auto;
+        max-height: 360px;
+        border-radius: 16px;
+    }
+
+    .panel-content {
+        padding: 16px;
+    }
+
+    /* Adjust flavor grid for smaller screens */
+    .flavor-grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        gap: 10px;
+    }
+
+    .flavor-card {
+        padding: 12px 8px;
+    }
+
+    .flavor-preview {
+        width: 46px;
+        height: 46px;
+        margin-bottom: 8px;
+    }
+
+    .flavor-name {
+        font-size: 0.85rem;
+    }
+
+    .flavor-desc {
+        font-size: 0.7rem;
+    }
+
+    /* Color palette */
+    .color-palette {
+        grid-template-columns: repeat(6, 1fr);
+        gap: 8px;
+    }
+
+    /* Decoration items */
+    .decor-item {
+        font-size: 1.6rem;
+        padding: 8px;
+    }
+
+    /* Modals */
+    .cb-modal-content {
+        padding: 20px;
+        width: 94%;
+    }
+
+    .cb-modal-content.large {
+        max-width: 94%;
+    }
+
+    /* Cake message board */
+    .cake-message-board {
+        font-size: 1.1rem;
+        padding: 8px 14px;
+    }
+}
+
+/* ========================================
+   RESPONSIVE — MOBILE (≤ 480px)
+   ======================================== */
+@media (max-width: 480px) {
+    .cake-maker-section {
+        padding: 20px 8px;
+    }
+
+    .cake-header .section-title {
+        font-size: 1.25rem;
+    }
+
+    .cake-toolbar {
+        gap: 6px;
+        padding: 5px 10px;
+    }
+
+    .tool-btn {
+        font-size: 1rem;
+        padding: 6px;
+    }
+
+    .cake-builder-layout {
+        gap: 10px;
+    }
+
+    /* Tabs even more compact */
+    .cb-tab {
+        padding: 8px 12px;
+        gap: 4px;
+    }
+
+    .tab-icon {
+        font-size: 1.1rem;
+    }
+
+    .tab-label {
+        font-size: 0.65rem;
+    }
+
+    /* Smaller cake stage */
+    .cb-stage-area {
+        height: 280px;
+        min-height: 260px;
+        overflow: visible;
+    }
+
+    .cake-stage {
+        width: 240px;
+        height: 240px;
+        transform: scale(0.65);
+        -webkit-transform: scale(0.65);
+        perspective: 600px;
+        will-change: transform;
+    }
+
+    .cake-container {
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+    }
+
+    .cake-plate {
+        width: 220px;
+        height: 220px;
+    }
+
+    .stage-actions {
+        bottom: 10px;
+        gap: 8px;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 0 10px;
+    }
+
+    .stage-actions .cta-button {
+        font-size: 0.78rem;
+        padding: 8px 14px;
+    }
+
+    /* Controls panel */
+    .cb-controls-panel {
+        max-height: 320px;
+    }
+
+    .panel-content {
+        padding: 12px;
+    }
+
+    /* Flavor grid single column on tiny screens */
+    .flavor-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+
+    .flavor-card {
+        padding: 10px 6px;
+    }
+
+    .flavor-preview {
+        width: 40px;
+        height: 40px;
+        margin-bottom: 6px;
+    }
+
+    .color-palette {
+        grid-template-columns: repeat(5, 1fr);
+        gap: 6px;
+    }
+
+    .decor-items {
+        gap: 8px;
+    }
+
+    .decor-item {
+        font-size: 1.4rem;
+        padding: 6px;
+    }
+
+    .cake-message-board {
+        font-size: 0.9rem;
+        padding: 6px 10px;
+    }
+}
