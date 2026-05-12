@@ -8,8 +8,8 @@
 const CONFIG = {
     // Basic Info
     name: "Misbiii",
-    birthdate: new Date(1998, 4, 13), 
-    unlockDate: new Date(2026, 4, 13, 0, 0, 0),
+    birthdate: new Date(1998, 4, 9), 
+    unlockDate: new Date(2026, 4, 9, 0, 0, 0),
 
     // --- SELLABLE TEMPLATE TEXT ---
     ui: {
@@ -1140,7 +1140,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const slide = document.createElement('div');
         slide.className = 'insta-slide';
         slide.innerHTML = `
-            <img src="images/${i + 1}.jpg" alt="Memory ${i + 1}" loading="lazy" />
+            <img src="${i + 1}.jpg" alt="Memory ${i + 1}" loading="lazy" />
             <div class="insta-slide-number">${i + 1} / ${TOTAL}</div>
         `;
         track.appendChild(slide);
