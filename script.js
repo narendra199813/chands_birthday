@@ -8,8 +8,8 @@
 const CONFIG = {
     // Basic Info
     name: "Misbiii",
-    birthdate: new Date(1998, 4, 9), 
-    unlockDate: new Date(2026, 4, 9, 0, 0, 0),
+    birthdate: new Date(1998, 4, 13), 
+    unlockDate: new Date(2026, 4, 13, 0, 0, 0),
 
     // --- SELLABLE TEMPLATE TEXT ---
     ui: {
