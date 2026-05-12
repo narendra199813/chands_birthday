@@ -50,9 +50,9 @@
     --radius-pill: 50px;
     --transition: 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
     --transition-slow: 0.6s cubic-bezier(0.4, 0.0, 0.2, 1);
-    --font-heading: 'Apricot', 'Comic Sans MS', cursive;
-    --font-body: 'Leckerli One', cursive;
-    --font-letter: 'Leckerli One', cursive;
+    --font-heading: 'Fredoka', sans-serif;
+    --font-body: 'Quicksand', sans-serif;
+    --font-letter: 'Dancing Script', cursive;
 }
 
 /* ========== RESET & BASE ========== */
@@ -1312,7 +1312,7 @@ body {
     color: #ffffff !important;
     padding: 15px 50px;
     border-radius: 50px;
-    font-family: 'Pacifico', cursive;
+    font-family: 'Fredoka', sans-serif;
     /* Assuming a cursive font is available, or fallback */
     font-size: 2.8rem;
     box-shadow: 0 10px 25px rgba(255, 117, 140, 0.4);
